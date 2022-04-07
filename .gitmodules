@@ -1,0 +1,3 @@
+[submodule "manning-smia"]
+	path = manning-smia
+	url = https://github.com/ihuaylupo/manning-smia.git
