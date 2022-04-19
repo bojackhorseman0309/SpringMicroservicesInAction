@@ -15,6 +15,7 @@
     <description>LicenseService</description>
     <properties>
         <java.version>11</java.version>
+        <docker.image.prefix>ostock</docker.image.prefix>
     </properties>
     <dependencies>
         <dependency>
@@ -42,9 +43,51 @@
     <build>
         <plugins>
             <plugin>
+                <!--                Layered -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <layers>
+                        <enabled>true</enabled>
+                    </layers>
+                </configuration>
             </plugin>
+
+            <!--            Buildpack -->
+            <!--            <plugin>-->
+            <!--                <groupId>org.springframework.boot</groupId>-->
+            <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--                <configuration>-->
+            <!--                    <image>-->
+            <!--                        <name>${docker.image.prefix}/${project.artifactId}:latest</name>-->
+            <!--                    </image>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+            <!--            Regular dockerfile (Not on M1) -->
+            <!--            <plugin>-->
+            <!--                <groupId>com.spotify</groupId>-->
+            <!--                <artifactId>dockerfile-maven-plugin</artifactId>-->
+            <!--                <version>1.4.13</version>-->
+            <!--                <configuration>-->
+            <!--                    <repository>${docker.image.prefix}/${project.artifactId}-->
+            <!--                    </repository>-->
+            <!--                    <tag>${project.version}</tag>-->
+            <!--                    <buildArgs>-->
+            <!--                        <JAR_FILE>target/${project.build.finalName}.jar-->
+            <!--                        </JAR_FILE>-->
+            <!--                    </buildArgs>-->
+            <!--                </configuration>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>default</id>-->
+            <!--                        <phase>install</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>build</goal>-->
+            <!--                            <goal>push</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
 
