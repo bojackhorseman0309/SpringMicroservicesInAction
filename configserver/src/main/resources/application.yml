@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native, git, vault
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+          # classpath:/config (src/main/resources/config)
+          # file:///Users/alonsoaraya/Desktop
+        git:
+          uri: https://github.com/ihuaylupo/config.git
+          searchPaths: licensingservice
+        vault:
+          port: 8200
+          host: 127.0.0.1
+          kv-version: 2
+
+server:
+  port: 8071
+
+encrypt:
+  key: secretkey
