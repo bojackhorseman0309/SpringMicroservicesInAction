@@ -1,7 +1,7 @@
 spring:
   application:
-    name: licensing-service
-  profiles:
-    active: dev
+    name: eureka-server
   config:
     import: configserver:http://localhost:8071
+
+
