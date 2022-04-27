@@ -13,7 +13,7 @@ public class OrganizationRestTemplateClient {
     @Autowired
     RestTemplate restTemplate;
 
-    public Organization getOrganization(String organizationId){
+    public static Organization getOrganization(String organizationId){
         ResponseEntity<Organization> restExchange =
                 restTemplate.exchange(
                         "http://organization-service/v1/organization/{organizationId}",
