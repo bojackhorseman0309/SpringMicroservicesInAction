@@ -1,5 +1,6 @@
 package com.optimagrowth.license.service.client;
 
+import org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,8 @@ import com.optimagrowth.license.model.Organization;
 @Component
 public class OrganizationRestTemplateClient {
     @Autowired
-    RestTemplate restTemplate;
+    static
+    KeycloakRestTemplate restTemplate;
 
     public static Organization getOrganization(String organizationId){
         ResponseEntity<Organization> restExchange =
