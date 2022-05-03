@@ -14,7 +14,7 @@ public class UserContext {
     private String userId = new String();
     private String organizationId = new String();
 
-    public String getCorrelationId() {
+    public static String getCorrelationId() {
         return correlationId;
     }
 
